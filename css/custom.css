@@ -1,0 +1,14 @@
+#leader-container {
+	width: 1170px !important;
+}
+#leader-container {
+	margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 2%;
+    background: white;
+}
+#body-background {
+	background: lightgray;
+}
