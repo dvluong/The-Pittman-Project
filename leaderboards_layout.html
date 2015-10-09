@@ -15,32 +15,51 @@
         var wins = 0;
         var rand = 0;
         var division = ['Professional', 'Graduate', 'Undergraduate', 'High School', 'Middle School'];
+        var i = 0;
+        var breaker = 0;
+        var tableNum = 1;
             $( document ).ready(function() {
-                for (i = 0; i < 10; i++) {
+                while (breaker != 40) {
+                    if (i == 10) {
+                        i = 0;
+                        tableNum++;
+                        count = 1;
+                    }
                     wins = Math.floor((Math.random() * 100) + 1);
                     rand = Math.floor((Math.random() * 5));
-                    $('#table-body:first').append("<tr>");
+                    $('#table-' + tableNum + ':first').append("<tr>");
                     $('tr:last').append("<td>" + count + "</td>");
                     $('tr:last').append("<td>" + names[i] + "</td>");
                     $('tr:last').append("<td>" + wins + "</td>");
                     $('tr:last').append("<td>" + division[rand] + "</td>");
-                    count++     
+                    count++;
+                    i++;
+                    breaker++;
                 }
-
             });
         </script>
         <nav>
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo">Logo</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">JavaScript</a></li>
+                    <li><a href="">Sass</a></li>
+                    <li><a href="">Components</a></li>
+                    <li><a href="">JavaScript</a></li>
                 </ul>
             </div>
         </nav>
         <div id="leader-container">
-            <table class="striped">
+            <div id="row-tabs" class="row">
+                <div class="col s12">
+                        <ul class="tabs">
+                        <li class="tab col s3"><a class="active" href="#table-1">Table 1</a></li>
+                        <li class="tab col s3"><a href="#table-2">Table 2</a></li>
+                        <li class="tab col s3"><a href="#table-3">Table 3</a></li>
+                        <li class="tab col s3"><a href="#table-4">Table 4</a></li>
+                    </ul>
+                </div>
+            </div>
+            <table id="row-tabs" class="striped bordered">
                 <thead>
                 <tr>
                     <th data-field="number"></th>
@@ -50,7 +69,16 @@
                 </tr>
                 </thead>
 
-                <tbody id="table-body">
+                <tbody id="table-1">
+                    
+                </tbody>
+                <tbody id="table-2">
+                    
+                </tbody>
+                <tbody id="table-3">
+                    
+                </tbody>
+                <tbody id="table-4">
                     
                 </tbody>
             </table>

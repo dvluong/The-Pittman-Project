@@ -12,3 +12,6 @@
 #body-background {
 	background: lightgray;
 }
+#row-tabs {
+	border-top: 1px solid lightgray;
+}
