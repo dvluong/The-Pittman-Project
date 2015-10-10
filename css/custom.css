@@ -1,7 +1,7 @@
 #leader-container {
 	width: 1170px !important;
 }
-#leader-container, #rules-container {
+#leader-container, #hacks-container {
 	margin-right: auto;
     margin-left: auto;
     padding-left: 15px;
@@ -15,12 +15,12 @@
 #row-tabs {
 	border-top: 1px solid lightgray;
 }
-#rules-container {
+#hacks-container {
 	width: 1170px;
 	margin-right: auto;
 	margin-left: auto;
 }
-.img-width {
+.hacks-img-width {
 	max-width: 500px;
 	margin-left: 4% !important;
 }
