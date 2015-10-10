@@ -25,6 +25,9 @@
 	margin-left: 4% !important;
 }
 .header {
-	color: gold;
+	color: rgb(0, 135, 23);
 	font-weight: 300;
+}
+.nav-colors {
+	background-color: rgb(0, 135, 23); 
 }
