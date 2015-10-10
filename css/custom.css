@@ -24,3 +24,7 @@
 	max-width: 500px;
 	margin-left: 4% !important;
 }
+.header {
+	color: gold;
+	font-weight: 300;
+}
