@@ -28,11 +28,31 @@
 }
 .rules-header {
 	font-weight: 300;
-	color: gold;
+	color: #e7a700;
 }
 .cpp-green {
-	background-color: rgb(0, 135, 23);
+	background-color: #00512b;
+}
+.cpp-yellow {
+	color: #e7a700;
 }
 .nav-colors {
-	background-color: rgb(0, 135, 23); 
+	background-color: #363430; 
+}
+#social-media-container {
+	width: 300px;
+	float: right;
+    min-height: 1px;
+    margin-left: 20px;
+}
+#social-media-container ul {
+	padding: 0; 
+    margin: 0;
+    list-style-type: none;
+}
+#social-media-container li {
+	margin: 0 5px;
+}
+#social-media-container ul li {
+	float: right;
 }
