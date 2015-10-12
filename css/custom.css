@@ -1,7 +1,7 @@
-#leader-container {
-	width: 1170px !important;
+#leader-container, #hacks-container, #rules-container {
+	width: 1170px;
 }
-#leader-container, #hacks-container {
+#leader-container, #hacks-container, #rules-container {
 	margin-right: auto;
     margin-left: auto;
     padding-left: 15px;
@@ -15,10 +15,8 @@
 #row-tabs {
 	border-top: 1px solid lightgray;
 }
-#hacks-container {
-	width: 1170px;
-	margin-right: auto;
-	margin-left: auto;
+#centering{
+	margin-left: 5%;
 }
 .hacks-img-width {
 	max-width: 500px;
@@ -27,6 +25,13 @@
 .header {
 	color: rgb(0, 135, 23);
 	font-weight: 300;
+}
+.rules-header {
+	font-weight: 300;
+	color: gold;
+}
+.cpp-green {
+	background-color: rgb(0, 135, 23);
 }
 .nav-colors {
 	background-color: rgb(0, 135, 23); 

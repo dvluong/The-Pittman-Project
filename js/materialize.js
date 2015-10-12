@@ -1150,7 +1150,7 @@ $(document).ready(function(){
       $this.append('<div class="indicator"></div>');
       var $indicator = $this.find('.indicator');
       if ($this.is(":visible")) {
-        //$indicator.css({"right": $tabs_width - (($index + 1) * $tab_width)});
+        $indicator.css({"right": $tabs_width - (($index + 1) * $tab_width)});
         $indicator.css({"left": $index * $tab_width});
       }
       $(window).resize(function () {
