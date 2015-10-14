@@ -1,6 +1,9 @@
 #leader-container, #hacks-container, #rules-container {
 	width: 1170px;
 }
+#hacks-container, #rules-container {
+	display: none;
+}
 #leader-container, #hacks-container, #rules-container {
 	margin-right: auto;
     margin-left: auto;
@@ -55,4 +58,7 @@
 }
 #social-media-container ul li {
 	float: right;
+}
+#leaderboards, #hackathons, #rules {
+	cursor: pointer;
 }
