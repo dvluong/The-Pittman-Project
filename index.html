@@ -17,7 +17,13 @@
         var wins = 0;
         var rand = 0;
         var division = ['Professional', 'Graduate', 'Undergraduate', 'High School', 'Middle School'];
+        var winArr = [];
+        var table1 = [];
+        var table2 = [];
+        var table3 = [];
+        var table4 = [];
         var i = 0;
+        var num = 0;
         var breaker = 0;
         var tableNum = 1;
         var leaderboardsId = '#leaderboards';
@@ -26,23 +32,71 @@
         var leaderContainer = '#leader-container';
         var hacksContainer = '#hacks-container';
         var rulesContainer = '#rules-container';
-            $( document ).ready(function() {
-                while (breaker != 40) {
-                    if (i == 10) {
-                        i = 0;
-                        tableNum++;
-                        count = 1;
-                    }
+            function appendNSort() {
+                for (a = 0; a < names.length*4; a++) {
                     wins = Math.floor((Math.random() * 100) + 1);
                     rand = Math.floor((Math.random() * 5));
-                    $('#table-' + tableNum + ':first').append("<tr>");
-                    $('tr:last').append("<td>" + count + "</td>");
-                    $('tr:last').append("<td>" + names[i] + "</td>");
-                    $('tr:last').append("<td>" + wins + "</td>");
-                    $('tr:last').append("<td>" + division[rand] + "</td>");
+                    if (num == 10) {
+                        num = 0;
+                    }
+                    winArr.push(wins);
+                    if (table1.length != 10) {
+                        table1.push({firstName:names[num], div: division[rand], totalWin: winArr[a]});
+                    } else if (table2.length != 10) {
+                        table2.push({firstName:names[num], div: division[rand], totalWin: winArr[a]});
+                    } else if (table3.length != 10) {
+                        table3.push({firstName:names[num], div: division[rand], totalWin: winArr[a]});
+                    } else if (table4.length != 10) {
+                        table4.push({firstName:names[num], div: division[rand], totalWin: winArr[a]});
+                    }
+                    num++;
+                }
+                table1.sort(function(a, b){return b.totalWin-a.totalWin});
+                table2.sort(function(a, b){return b.totalWin-a.totalWin});
+                table3.sort(function(a, b){return b.totalWin-a.totalWin});
+                table4.sort(function(a, b){return b.totalWin-a.totalWin});
+                console.log(table1);
+                console.log(table2);
+                console.log(table3);
+                console.log(table4);
+            }
+            $( document ).ready(function() {
+                appendNSort();  
+                while (breaker != 40) {
+                    if (i == 10) {
+                        tableNum++;
+                        count = 1;
+                        i = 0;
+                    }
+                    if (tableNum == 1) {
+                        $('#table-1:first').append("<tr>");
+                        $('tr:last').append("<td>" + count + "</td>");
+                        $('tr:last').append("<td>" + table1[i].firstName + "</td>");
+                        $('tr:last').append("<td>" + table1[i].totalWin + "</td>");
+                        $('tr:last').append("<td>" + table1[i].div + "</td>");
+                    } else if (tableNum == 2) {
+                        $('#table-2:first').append("<tr>");
+                        $('tr:last').append("<td>" + count + "</td>");
+                        $('tr:last').append("<td>" + table2[i].firstName + "</td>");
+                        $('tr:last').append("<td>" + table2[i].totalWin + "</td>");
+                        $('tr:last').append("<td>" + table2[i].div + "</td>");
+                    } else if (tableNum == 3) {
+                        $('#table-3:first').append("<tr>");
+                        $('tr:last').append("<td>" + count + "</td>");
+                        $('tr:last').append("<td>" + table3[i].firstName + "</td>");
+                        $('tr:last').append("<td>" + table3[i].totalWin + "</td>");
+                        $('tr:last').append("<td>" + table3[i].div + "</td>");
+                    } else {
+                        $('#table-4:first').append("<tr>");
+                        $('tr:last').append("<td>" + count + "</td>");
+                        $('tr:last').append("<td>" + table4[i].firstName + "</td>");
+                        $('tr:last').append("<td>" + table4[i].totalWin + "</td>");
+                        $('tr:last').append("<td>" + table4[i].div + "</td>");
+                    }
                     count++;
                     i++;
                     breaker++;
+                    console.log(i);
                 }
             });
             function navigate(id) {
@@ -238,7 +292,7 @@
             </div>
             <div class="footer-copyright">
                 <div class="container">
-                    © 2015 California State Polytechnic University, Pomona
+                    © 2015 Copyright Cyberfed
                     <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
                 </div>
             </div>

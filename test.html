@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Leaderboards</title>
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/materialize.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="css/custom.css">
+    </head>
+    <body id="body-background">
+        <script type="text/javascript">
+        var count = 1;
+        var names = ['David', 'Jason', 'Dan', 'Thuy', 'Raina', 'Jim', 'Alex', 'Andrew', 'Roberto', 'Jose'];
+        var wins = 0;
+        var rand = 0;
+        var division = ['Professional', 'Graduate', 'Undergraduate', 'High School', 'Middle School'];
+        var i = 0;
+        var breaker = 0;
+        var tableNum = 1;
+        var test = [{firstName:"Fack", lastName:"Doe", age:6}, {firstName:"David", lastName:"Doe", age:2},
+                    {firstName:"Dood", lastName:"Doe", age:5}, {firstName:"Hoe", lastName:"Doe", age:1}, 
+                    {firstName:"This", lastName:"Doe", age:20}, {firstName:"Penis", lastName:"Doe", age:5}, 
+                    {firstName:"Poop", lastName:"Doe", age:3}, {firstName:"Slut", lastName:"Doe", age:6}];
+        var test2 = [{firstName:"Fack", lastName:"Doe", age:6}, {firstName:"David", lastName:"Doe", age:2},
+                    {firstName:"Dood", lastName:"Doe", age:5}, {firstName:"Hoe", lastName:"Doe", age:1}, 
+                    {firstName:"This", lastName:"Doe", age:20}, {firstName:"Penis", lastName:"Doe", age:5}, 
+                    {firstName:"Poop", lastName:"Doe", age:3}, {firstName:"Slut", lastName:"Doe", age:6}];
+            $( document ).ready(function() {
+                console.log(test + '2');
+                test.sort(function(a, b){return a.age-b.age});
+                
+                for (i = 0; i < test.length; i++) {
+                    console.log(test[i].firstName);
+                    console.log(test[i].lastName);
+                    console.log(test[i].age);
+                }
+            });
+        </script>
+    </body>
+</html>
