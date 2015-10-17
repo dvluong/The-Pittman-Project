@@ -5,9 +5,16 @@
         <title>Leaderboards</title>
         <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/materialize.min.js"></script>
+        <!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
         <link rel="stylesheet" type="text/css" href="css/custom.css">
     </head>
+    <style type="text/css">
+        body {padding: 20px;}
+        input {margin-bottom: 5px; padding: 2px 3px; width: 209px;}
+        td {padding: 4px; border: 1px #CCC solid; width: 100px;}
+    </style>
     <body id="body-background">
         <script type="text/javascript">
         var count = 1;
@@ -22,20 +29,47 @@
                     {firstName:"Dood", lastName:"Doe", age:5}, {firstName:"Hoe", lastName:"Doe", age:1}, 
                     {firstName:"This", lastName:"Doe", age:20}, {firstName:"Penis", lastName:"Doe", age:5}, 
                     {firstName:"Poop", lastName:"Doe", age:3}, {firstName:"Slut", lastName:"Doe", age:6}];
-        var test2 = [{firstName:"Fack", lastName:"Doe", age:6}, {firstName:"David", lastName:"Doe", age:2},
-                    {firstName:"Dood", lastName:"Doe", age:5}, {firstName:"Hoe", lastName:"Doe", age:1}, 
-                    {firstName:"This", lastName:"Doe", age:20}, {firstName:"Penis", lastName:"Doe", age:5}, 
-                    {firstName:"Poop", lastName:"Doe", age:3}, {firstName:"Slut", lastName:"Doe", age:6}];
             $( document ).ready(function() {
-                console.log(test + '2');
-                test.sort(function(a, b){return a.age-b.age});
-                
-                for (i = 0; i < test.length; i++) {
-                    console.log(test[i].firstName);
-                    console.log(test[i].lastName);
-                    console.log(test[i].age);
-                }
+                var $rows = $('#table tr');
+                console.log($rows);
+                $('#search').keyup(function() {
+                    
+                    var val = '^(?=.*\\b' + $.trim($(this).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$',
+                        reg = RegExp(val, 'i'),
+                        text;
+                    
+                    $rows.show().filter(function() {
+                        text = $(this).text().replace(/\s+/g, ' ');
+                        return !reg.test(text);
+                    }).hide();
+                });
             });
         </script>
+        <!-- <input type="text" id="search" placeholder="Type to search"> -->
+        <nav>
+            <div class="nav-wrapper">
+               <div class="input-field">
+                    <input type="text" id="search" type="search" required>
+                    <label for="search"><i class="material-icons">search</i></label>
+                </div>        
+            </div>
+        </nav>
+        <table id="table">
+            <tbody>
+                <tr>
+              <td>Apple</td>
+              <td>Green</td>
+           </tr>
+            </tbody>
+           
+           <tr>
+              <td>Grapes</td>
+              <td>Green</td>
+           </tr>
+           <tr>
+              <td>Orange</td>
+              <td>Orange</td>
+           </tr>
+        </table>
     </body>
 </html>

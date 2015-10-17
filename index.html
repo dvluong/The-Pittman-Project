@@ -55,10 +55,6 @@
                 table2.sort(function(a, b){return b.totalWin-a.totalWin});
                 table3.sort(function(a, b){return b.totalWin-a.totalWin});
                 table4.sort(function(a, b){return b.totalWin-a.totalWin});
-                console.log(table1);
-                console.log(table2);
-                console.log(table3);
-                console.log(table4);
             }
             $( document ).ready(function() {
                 appendNSort();  
@@ -96,8 +92,20 @@
                     count++;
                     i++;
                     breaker++;
-                    console.log(i);
                 }
+            });
+            $(document).ready(function(){
+                // Write on keyup event of keyword input element
+                $("#search").keyup(function(){
+                    _this = this;
+                    // Show only matching TR, hide rest of them
+                    $.each($("#row-tabs tbody").find("tr"), function() {
+                        if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) == -1)
+                           $(this).hide();
+                        else
+                             $(this).show();                
+                    });
+                });
             });
             function navigate(id) {
                 if (id == leaderboardsId && !($(leaderContainer).is(':visible'))) {
@@ -134,6 +142,16 @@
                     <li><a id="hackathons" onclick="navigate('#' + this.id)">Hackathons</a></li>
                     <li><a id="rules" onclick="navigate('#' + this.id)">Rules</a></li>
                 </ul>
+            </div>
+        </nav>
+        <nav>
+            <div class="nav-wrapper">
+                <form>
+                    <div class="input-field">
+                        <input type="text" id="search" type="search" required>
+                        <label for="search"><i class="material-icons">search</i></label>
+                    </div>
+                </form>
             </div>
         </nav>
         <div id="leader-container">
