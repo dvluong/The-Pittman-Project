@@ -18,9 +18,9 @@
         var rand = 0;
         var randRatio = 0;
         var randGame = 0;
+        var temp =0;
         var division = ['Professional', 'Graduate', 'Undergraduate', 'High School', 'Middle School'];
         var winArr = [];
-        var winRatio = [];
         var totalGame = [];
         var table1 = [];
         var table2 = [];
@@ -39,23 +39,21 @@
             function appendNSort() {
                 for (a = 0; a < names.length*4; a++) {
                     wins = Math.floor((Math.random() * 100) + 1);
-                    randRatio = (Math.floor(Math.random() * 100) + 1);
                     randGame = (Math.floor(Math.random() * 100) + 1);
                     rand = Math.floor((Math.random() * 5));
                     if (num == 10) {
                         num = 0;
                     }
                     winArr.push(wins);
-                    winRatio.push(randRatio);
                     totalGame.push(randGame);
                     if (table1.length != 10) {
-                        table1.push({firstName:names[num], div: division[rand], totalGames: totalGame[a], totalWin: winArr[a], ratio: Math.floor(winRatio[a]/totalGame[a]) * 100 + '%'});
+                        table1.push({firstName:names[num], div: division[rand], totalGames: totalGame[a], totalWin: winArr[a], ratio: Math.round((winArr[a]/totalGame[a]) * 100) + '%'});
                     } else if (table2.length != 10) {
-                        table2.push({firstName:names[num], div: division[rand], totalGames: totalGame[a], totalWin: winArr[a], ratio: Math.floor(winRatio[a]/totalGame[a]) * 100 + '%'});
+                        table2.push({firstName:names[num], div: division[rand], totalGames: totalGame[a], totalWin: winArr[a], ratio: Math.round((winArr[a]/totalGame[a]) * 100) + '%'});
                     } else if (table3.length != 10) {
-                        table3.push({firstName:names[num], div: division[rand], totalGames: totalGame[a], totalWin: winArr[a], ratio: Math.floor(winRatio[a]/totalGame[a]) * 100 + '%'});
+                        table3.push({firstName:names[num], div: division[rand], totalGames: totalGame[a], totalWin: winArr[a], ratio: Math.round((winArr[a]/totalGame[a]) * 100 )+ '%'});
                     } else if (table4.length != 10) {
-                        table4.push({firstName:names[num], div: division[rand], totalGames: totalGame[a], totalWin: winArr[a], ratio: Math.floor(winRatio[a]/totalGame[a]) * 100 + '%'});
+                        table4.push({firstName:names[num], div: division[rand], totalGames: totalGame[a], totalWin: winArr[a], ratio: Math.round((winArr[a]/totalGame[a]) * 100) + '%'});
                     }
                     num++;
                 }
@@ -63,6 +61,7 @@
                 table2.sort(function(a, b){return b.totalWin-a.totalWin});
                 table3.sort(function(a, b){return b.totalWin-a.totalWin});
                 table4.sort(function(a, b){return b.totalWin-a.totalWin});
+                console.log(table1);
             }
             $( document ).ready(function() {
                 appendNSort();  
