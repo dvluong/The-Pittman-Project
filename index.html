@@ -113,6 +113,7 @@
                 }
             });
             $(document).ready(function(){
+                $(".button-collapse").sideNav();
                 // Write on keyup event of keyword input element
                 $("#search").keyup(function(){
                     _this = this;
@@ -155,23 +156,30 @@
         <nav>
             <div class="nav-wrapper nav-colors">
                 <a class="brand-logo"><img src="images/logo_cpp.png"></a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a id="leaderboards" onclick="navigate('#' + this.id)">Leaderboards</a></li>
                     <li><a id="hackathons" onclick="navigate('#' + this.id)">Hackathons</a></li>
                     <li><a id="rules" onclick="navigate('#' + this.id)">Rules</a></li>
                 </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a id="leaderboards" onclick="navigate('#' + this.id)">Leaderboards</a></li>
+                    <li><a id="hackathons" onclick="navigate('#' + this.id)">Hackathons</a></li>
+                    <li><a id="rules" onclick="navigate('#' + this.id)">Rules</a></li>
+                </ul>
+
             </div>
         </nav>
-        <nav>
-            <div class="nav-wrapper">
-                
+        <nav id="search-bar">
+            <div class="nav-wrapper nav-colors">
                 <div class="input-field">
                     <input id="search" type="search" placeholder="Type to search.." required>
                     <label for="search"><i class="material-icons">search</i></label>
                     <i class="material-icons">close</i>
                 </div>
             </div>
-        </nav>
+        </nav>  
         <div id="leader-container">
             <div class="row">
                 <div class="col s12">
