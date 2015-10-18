@@ -36,16 +36,16 @@
         var leaderContainer = '#leader-container';
         var hacksContainer = '#hacks-container';
         var rulesContainer = '#rules-container';
-            function appendNSort() {
+            function createMockList() {
                 for (a = 0; a < names.length*4; a++) {
-                    wins = Math.floor((Math.random() * 100) + 1);
+                    wins = Math.floor((Math.random() * 100));
                     randGame = (Math.floor(Math.random() * 100) + 1);
                     rand = Math.floor((Math.random() * 5));
                     if (num == 10) {
                         num = 0;
                     }
                     while (wins >= randGame) {
-                        wins = Math.floor((Math.random() * 100) + 1);
+                        wins = Math.floor((Math.random() * 100));
                     }
                     winArr.push(wins);
                     totalGame.push(randGame);
@@ -67,7 +67,7 @@
                 console.log(table1);
             }
             $( document ).ready(function() {
-                appendNSort();  
+                createMockList();  
                 while (breaker != 40) {
                     if (i == 10) {
                         tableNum++;
