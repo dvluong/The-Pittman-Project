@@ -44,6 +44,9 @@
                     if (num == 10) {
                         num = 0;
                     }
+                    while (wins >= randGame) {
+                        wins = Math.floor((Math.random() * 100) + 1);
+                    }
                     winArr.push(wins);
                     totalGame.push(randGame);
                     if (table1.length != 10) {
