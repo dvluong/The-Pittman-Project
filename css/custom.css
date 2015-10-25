@@ -13,7 +13,8 @@
     background: white;
 }
 #body-background {
-	background: lightgray;
+	/*background: lightgray;*/
+	background-image: url("http://cyberfed.org/templates/logistix/images/backgrounds/bridge-bobybkg.jpg");
 }
 #row-tabs {
 	border-top: 1px solid lightgray;
@@ -26,7 +27,7 @@
 	margin-left: 4% !important;
 }
 .header {
-	color: rgb(0, 135, 23);
+	color: #ffa500;
 	font-weight: 300;
 }
 .rules-header {
@@ -34,13 +35,14 @@
 	color: #e7a700;
 }
 .cpp-green {
-	background-color: #00512b;
+	/*background-color: #00512b;*/
+	background-image: url("http://cyberfed.org/templates/logistix/images/backgrounds/bridge.jpg");
 }
 .cpp-yellow {
 	color: #e7a700;
 }
-.nav-colors {
-	background-color: #363430; 
+.nav-colors{
+	background-color: #000000; 
 }
 #social-media-container {
 	width: 300px;
@@ -67,4 +69,22 @@
     margin-left: auto;
 	width: 1170px;
 	margin-top: 1%;
+}
+#login-register {
+	height: 50px;
+}
+#login {
+	float: right;
+	margin-top: 7px;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: #ffa500;
+}
+#register {
+	float: right;
+	margin-top: 7px;
+	background-color: #ffa500;
+}
+#cyber-logo {
+	line-height: 90px;
 }
