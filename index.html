@@ -204,8 +204,13 @@
             <div class="nav-wrapper nav-colors">
                 <a id="cyber-logo" class="brand-logo"><img src="images/cycfed.jpg"></a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                <a id="register" class="waves-effect waves-light btn" onclick="navigate('#' + this.id)"><i class="material-icons left login-register">input</i>Register</a>
-                <a id="login" class="waves-effect waves-light btn"><i class="login-register material-icons left">input</i>Login</a>
+                <a id="register" class="waves-effect waves-light btn login-register" onclick="navigate('#' + this.id)">Login/Register</a>
+                <div style="margin-top: 11px; background-color: #616161; border-radius: 5px;" class="right">
+                    <div class="input-field">
+                        <input id="search" type="search" placeholder="Type to search.." required>
+                        <label for="search"><i style="line-height: 40px" class="material-icons">search</i></label>
+                    </div>
+                </div>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a id="hackathons" onclick="navigate('#' + this.id)">Hackathons</a></li>
                     <li><a id="leaderboards" onclick="navigate('#' + this.id)">Leaderboards</a></li>
@@ -217,13 +222,6 @@
                     <li><a id="hackathons" onclick="navigate('#' + this.id)">Hackathons</a></li>
                     <li><a id="rules" onclick="navigate('#' + this.id)">Rules</a></li>
                 </ul>
-                <div class="right">
-                    <div class="input-field">
-                        <input id="search" type="search" placeholder="Type to search.." required>
-                        <label for="search"><i class="material-icons">search</i></label>
-                        <i class="material-icons">close</i>
-                    </div>
-                </div>
             </div>
         </nav>
         <div id="hacks-container">

@@ -81,7 +81,8 @@
 }
 
 .login-register {
-	line-height: 35px !important;
+	width: 150px;
+	font-size: 12px;
 }
 #login {
 	float: right;
@@ -93,6 +94,8 @@
 #register {
 	float: right;
 	margin-top: 13px;
+	margin-left: 10px;
+	margin-right: 5px;
 	background-color: #ffa500;
 }
 #cyber-logo {
@@ -110,15 +113,23 @@
 }
 .input-field input[type=search] {
   display: block;
-  line-height: inherit;
+  line-height: normal;
   padding-left: 4rem;
   width: calc(100% - 4rem);
 }
+.input-field input[type=search]:focus {
+	background-color: #616161;
+	color: white;
+}
+.input-field input[type=search]:focus + label i{
+	color: white;
+}
 .input-field {
-  position: relative;
-  min-width: 300px;
+  	position: relative;
+  	width: 250px;
+  	height: 40px;
 	overflow: hidden;
-  margin-top: 1rem;
+	border-radius: 5px;
 }
 .input-field input[type=search] ~ .mdi-navigation-close {
   position: absolute;
