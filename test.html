@@ -11,9 +11,27 @@
         <link rel="stylesheet" type="text/css" href="css/custom.css">
     </head>
     <style type="text/css">
-        body {padding: 20px;}
-        input {margin-bottom: 5px; padding: 2px 3px; width: 209px;}
-        td {padding: 4px; border: 1px #CCC solid; width: 100px;}
+        .input-field input[type=search] {
+  display: block;
+  line-height: inherit;
+  padding-left: 4rem;
+  width: calc(100% - 4rem);
+}
+.input-field {
+  position: relative;
+  min-width: 300px;
+    overflow: hidden;
+  margin-top: 1rem;
+}
+.input-field input[type=search] ~ .mdi-navigation-close {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  color: transparent;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: .3s color;
+}
     </style>
     <body id="body-background">
         <script type="text/javascript">
@@ -46,31 +64,31 @@
             });
         </script>
         <!-- <input type="text" id="search" placeholder="Type to search"> -->
-        <nav>
-            <div class="nav-wrapper">
-               <div class="input-field">
-                    <input type="text" id="search" type="search" required>
-                    <label for="search"><i class="material-icons">search</i></label>
-                </div>        
+        <nav class="red lighten-1">
+        <div class="nav-wrapper">
+            <a href="#" class="left">Website</a>
+            <a href="#" data-activates="mobile-nav" class="right button-collapse"><i class="mdi-navigation-more-vert"></i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+            </ul>
+            <div class="right">
+                <form>
+                    <div class="input-field">
+                        <input type="search" id="search-field" class="field" required maxlength="">
+                        <label for="search-field"><i class="mdi-action-search"></i></label>
+                        <i class="mdi-navigation-close close"></i>
+                    </div>
+                </form>
             </div>
-        </nav>
-        <table id="table">
-            <tbody>
-                <tr>
-              <td>Apple</td>
-              <td>Green</td>
-           </tr>
-            </tbody>
-           
-           <tr>
-              <td>Grapes</td>
-              <td>Green</td>
-           </tr>
-           <tr>
-              <td>Orange</td>
-              <td>Orange</td>
-           </tr>
-        </table>
-        <p>This is a paragraph.</p>
+        </div>
+    </nav>
+    <ul class="side-nav" id="mobile-nav">
+        <li><a href="#">Link 1</a></li>
+        <li><a href="#">Link 2</a></li>
+        <li><a href="#">Link 3</a></li>
+    </ul>
+</header>
     </body>
 </html>

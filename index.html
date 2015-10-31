@@ -35,9 +35,11 @@
         var leaderboardsId = '#leaderboards';
         var hackathonsId = '#hackathons';
         var rulesId = '#rules';
+        var registerId = '#register';
         var leaderContainer = '#leader-container';
         var hacksContainer = '#hacks-container';
         var rulesContainer = '#rules-container';
+        var registerContainer = '#register-container';
             function createMockList() {
                 for (a = 0; a < names.length*4; a++) {
                     wins = Math.floor((Math.random() * 100));
@@ -126,6 +128,18 @@
                         else
                              $(this).show();                
                     });
+                    $.each($("#hacks-container").find("div .card"), function() {
+                        if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) == -1)
+                           $(this).hide();
+                        else
+                             $(this).show();                
+                    });
+                    $.each($("#rules-container").find("div .card-panel"), function() {
+                        if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) == -1)
+                           $(this).hide();
+                        else
+                             $(this).show();                
+                    });
                 });
             });
             function navigate(id) {
@@ -133,24 +147,40 @@
                     $(leaderContainer).fadeIn(1000);
                     if ($(hacksContainer).is(':visible')) {
                         $(hacksContainer).fadeOut(500);
-                    } else {
+                    } else if ($(rulesContainer).is(':visible')){
                         $(rulesContainer).fadeOut(500);
+                    } else {
+                        $(registerContainer).fadeOut(500);
                     }
                 }
                 if (id == hackathonsId && !($(hacksContainer).is(':visible'))) {
                     $(hacksContainer).fadeIn(1000);
                     if ($(leaderContainer).is(':visible')) {
                         $(leaderContainer).fadeOut(500);
-                    } else {
+                    } else if ($(rulesContainer).is(':visible')){
                         $(rulesContainer).fadeOut(500);
+                    } else {
+                        $(registerContainer).fadeOut(500);                        
                     }
                 }
                 if (id == rulesId && !($(rulesContainer).is(':visible'))) {
                     $(rulesContainer).fadeIn(1000);
                     if ($(leaderContainer).is(':visible')) {
                         $(leaderContainer).fadeOut(500);
-                    } else {
+                    } else if ($(hacksContainer).is(':visible')){
                         $(hacksContainer).fadeOut(500);
+                    } else {
+                        $(registerContainer).fadeOut(500);
+                    }
+                }
+                if (id == registerId && !($(registerContainer).is(':visible'))) {
+                    $(registerContainer).fadeIn(1000);
+                    if ($(leaderContainer).is(':visible')) {
+                        $(leaderContainer).fadeOut(500);
+                    } else if ($(hacksContainer).is(':visible')){
+                        $(hacksContainer).fadeOut(500);
+                    } else {
+                        $(rulesContainer).fadeOut(500);
                     }
                 }
             }
@@ -168,119 +198,34 @@
                   console.log('User signed out.');
                 });
             }
+
         </script>
-        <div id="login-register">
-            <a id="login" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Login</a>
-            <a id="register" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Register</a>
-        </div>
-        <nav>
+        <nav id="fixed-nav">
             <div class="nav-wrapper nav-colors">
                 <a id="cyber-logo" class="brand-logo"><img src="images/cycfed.jpg"></a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                
+                <a id="register" class="waves-effect waves-light btn" onclick="navigate('#' + this.id)"><i class="material-icons left login-register">input</i>Register</a>
+                <a id="login" class="waves-effect waves-light btn"><i class="login-register material-icons left">input</i>Login</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a id="leaderboards" onclick="navigate('#' + this.id)">Leaderboards</a></li>
                     <li><a id="hackathons" onclick="navigate('#' + this.id)">Hackathons</a></li>
+                    <li><a id="leaderboards" onclick="navigate('#' + this.id)">Leaderboards</a></li>
                     <li><a id="rules" onclick="navigate('#' + this.id)">Rules</a></li>
+                    
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li><a id="leaderboards" onclick="navigate('#' + this.id)">Leaderboards</a></li>
                     <li><a id="hackathons" onclick="navigate('#' + this.id)">Hackathons</a></li>
                     <li><a id="rules" onclick="navigate('#' + this.id)">Rules</a></li>
                 </ul>
-
+                <div class="right">
+                    <div class="input-field">
+                        <input id="search" type="search" placeholder="Type to search.." required>
+                        <label for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                    </div>
+                </div>
             </div>
         </nav>
-        <nav id="search-bar">
-            <div class="nav-wrapper nav-colors">
-                <div class="input-field">
-                    <input id="search" type="search" placeholder="Type to search.." required>
-                    <label for="search"><i class="material-icons">search</i></label>
-                    <i class="material-icons">close</i>
-                </div>
-            </div>
-        </nav>  
-        <div id="leader-container">
-            <div class="row">
-                <div class="col s12">
-                        <ul class="tabs">
-                        <li class="tab col s3"><a class="active" href="#table-1">Table 1</a></li>
-                        <li class="tab col s3"><a href="#table-2">Table 2</a></li>
-                        <li class="tab col s3"><a href="#table-3">Table 3</a></li>
-                        <li class="tab col s3"><a href="#table-4">Table 4</a></li>
-                    </ul>
-                </div>
-            </div>
-            <table id="row-tabs" class="striped bordered">
-                <thead>
-                <tr>
-                    <th data-field="number"></th>
-                    <th data-field="id">Name</th>
-                    <th data-field="total">Total Games</th>
-                    <th data-field="name">Wins</th>
-                    <th data-field="ratio">Win Ratio</th>
-                    <th data-field="division">Division</th>
-                </tr>
-                </thead>
-
-                <tbody id="table-1">
-                    
-                </tbody>
-                <tbody id="table-2">
-                    
-                </tbody>
-                <tbody id="table-3">
-                    
-                </tbody>
-                <tbody id="table-4">
-                    
-                </tbody>
-            </table>
-        </div>
-        <div id="rules-container">
-            <div class="row">              
-                <div id="centering" class="col s12 m5">
-                    <div class="card-panel cpp-green z-depth-5">
-                        <h4 class="rules-header">Title Hack 1</h4>
-                        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-                        </span>  
-                    </div>
-                    <div class="card-panel cpp-green z-depth-5">
-                        <h4 class="rules-header">Title Hack 1</h4>
-                        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-                        </span>  
-                    </div>
-                    <div class="card-panel cpp-green z-depth-5">
-                        <h4 class="rules-header">Title Hack 1</h4>
-                        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-                        </span>  
-                    </div>
-                </div>
-                <div id="centering" class="col s12 m5">
-                    <div class="card-panel cpp-green z-depth-5">
-                        <h4 class="rules-header">Title Hack 1</h4>
-                        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-                        </span>  
-                    </div>
-                    <div class="card-panel cpp-green z-depth-5">
-                        <h4 class="rules-header">Title Hack 1</h4>
-                        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-                        </span>  
-                    </div>
-                    <div class="card-panel cpp-green z-depth-5">
-                        <h4 class="rules-header">Title Hack 1</h4>
-                        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-                        </span>  
-                    </div>
-                </div>               
-            </div>    
-        </div>
         <div id="hacks-container">
             <div class="row">
                 <div class="card hacks-img-width z-depth-5 col s6 hacks-color">
@@ -388,6 +333,116 @@
                     </div>
                 </div>
             </div>
+        </div>  
+        <div id="leader-container">
+            <div class="row">
+                <div class="col s12">
+                        <ul class="tabs">
+                        <li class="tab col s3"><a class="active" href="#table-1">Table 1</a></li>
+                        <li class="tab col s3"><a href="#table-2">Table 2</a></li>
+                        <li class="tab col s3"><a href="#table-3">Table 3</a></li>
+                        <li class="tab col s3"><a href="#table-4">Table 4</a></li>
+                    </ul>
+                </div>
+            </div>
+            <table id="row-tabs" class="striped bordered">
+                <thead>
+                <tr>
+                    <th data-field="number"></th>
+                    <th data-field="id">Name</th>
+                    <th data-field="total">Total Games</th>
+                    <th data-field="name">Wins</th>
+                    <th data-field="ratio">Win Ratio</th>
+                    <th data-field="division">Division</th>
+                </tr>
+                </thead>
+
+                <tbody id="table-1">
+                    
+                </tbody>
+                <tbody id="table-2">
+                    
+                </tbody>
+                <tbody id="table-3">
+                    
+                </tbody>
+                <tbody id="table-4">
+                    
+                </tbody>
+            </table>
+        </div>
+        <div id="rules-container">
+            <div class="row">              
+                <div id="centering" class="col s12 m5">
+                    <div class="card-panel cpp-green z-depth-5">
+                        <h4 class="rules-header">Title Hack 1</h4>
+                        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                        </span>  
+                    </div>
+                    <div class="card-panel cpp-green z-depth-5">
+                        <h4 class="rules-header">Title Hack 1</h4>
+                        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                        </span>  
+                    </div>
+                    <div class="card-panel cpp-green z-depth-5">
+                        <h4 class="rules-header">Title Hack 1</h4>
+                        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                        </span>  
+                    </div>
+                </div>
+                <div id="centering" class="col s12 m5">
+                    <div class="card-panel cpp-green z-depth-5">
+                        <h4 class="rules-header">Title Hack 1</h4>
+                        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                        </span>  
+                    </div>
+                    <div class="card-panel cpp-green z-depth-5">
+                        <h4 class="rules-header">Title Hack 1</h4>
+                        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                        </span>  
+                    </div>
+                    <div class="card-panel cpp-green z-depth-5">
+                        <h4 class="rules-header">Title Hack 1</h4>
+                        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                        </span>  
+                    </div>
+                </div>               
+            </div>    
+        </div>
+        <div id="register-container">
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="first_name" type="text" class="validate">
+                            <label for="first_name">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="last_name" type="text" class="validate">
+                            <label for="last_name">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <img style="-webkit-user-select: none; width: 300px; display: block; margin-left: auto; margin-right: auto;" src="https://www.rallynavigator.com/assets/google_oauth2-login-button-9da4ac95125e023504fe0d9db96c94f0.png">
         </div>
         <footer id="footer" class="page-footer footer-colors">
             <div class="container">

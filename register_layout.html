@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Index</title>
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/materialize.min.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="css/custom.css">
+        <meta name="google-signin-client_id" content="757099700822-29tejoue31hcm39hhbqm4p7qgqbkh06d.apps.googleusercontent.com">
+    </head>
+    <body id="body-background">
+        <script type="text/javascript">
+        var count = 1;
+        var names = ['David', 'Jason', 'Dan', 'Thuy', 'Raina', 'Jim', 'Alex', 'Andrew', 'Roberto', 'Jose'];
+        var wins = 0;
+        var rand = 0;
+        var randRatio = 0;
+        var randGame = 0;
+        var temp =0;
+        var division = ['Professional', 'Graduate', 'Undergraduate', 'High School', 'Middle School'];
+        var winArr = [];
+        var totalGame = [];
+        var table1 = [];
+        var table2 = [];
+        var table3 = [];
+        var table4 = [];
+        var i = 0;
+        var num = 0;
+        var breaker = 0;
+        var tableNum = 1;
+        var leaderboardsId = '#leaderboards';
+        var hackathonsId = '#hackathons';
+        var rulesId = '#rules';
+        var leaderContainer = '#leader-container';
+        var hacksContainer = '#hacks-container';
+        var rulesContainer = '#rules-container';
+            function createMockList() {
+                for (a = 0; a < names.length*4; a++) {
+                    wins = Math.floor((Math.random() * 100));
+                    randGame = (Math.floor(Math.random() * 100) + 1);
+                    rand = Math.floor((Math.random() * 5));
+                    if (num == 10) {
+                        num = 0;
+                    }
+                    while (wins >= randGame) {
+                        wins = Math.floor((Math.random() * 100));
+                    }
+                    winArr.push(wins);
+                    totalGame.push(randGame);
+                    if (table1.length != 10) {
+                        table1.push({firstName:names[num], div: division[rand], totalGames: totalGame[a], totalWin: winArr[a], ratio: Math.round((winArr[a]/totalGame[a]) * 100) + '%'});
+                    } else if (table2.length != 10) {
+                        table2.push({firstName:names[num], div: division[rand], totalGames: totalGame[a], totalWin: winArr[a], ratio: Math.round((winArr[a]/totalGame[a]) * 100) + '%'});
+                    } else if (table3.length != 10) {
+                        table3.push({firstName:names[num], div: division[rand], totalGames: totalGame[a], totalWin: winArr[a], ratio: Math.round((winArr[a]/totalGame[a]) * 100 )+ '%'});
+                    } else if (table4.length != 10) {
+                        table4.push({firstName:names[num], div: division[rand], totalGames: totalGame[a], totalWin: winArr[a], ratio: Math.round((winArr[a]/totalGame[a]) * 100) + '%'});
+                    }
+                    num++;
+                }
+                table1.sort(function(a, b){return b.totalWin-a.totalWin});
+                table2.sort(function(a, b){return b.totalWin-a.totalWin});
+                table3.sort(function(a, b){return b.totalWin-a.totalWin});
+                table4.sort(function(a, b){return b.totalWin-a.totalWin});
+                console.log(table1);
+            }
+            $( document ).ready(function() {
+                createMockList();  
+                while (breaker != 40) {
+                    if (i == 10) {
+                        tableNum++;
+                        count = 1;
+                        i = 0;
+                    }
+                    if (tableNum == 1) {
+                        $('#table-1:first').append("<tr>");
+                        $('tr:last').append("<td>" + count + "</td>");
+                        $('tr:last').append("<td>" + table1[i].firstName + "</td>");
+                        $('tr:last').append("<td>" + table1[i].totalGames + "</td>");
+                        $('tr:last').append("<td>" + table1[i].totalWin + "</td>");
+                        $('tr:last').append("<td>" + table1[i].ratio + "</td>");
+                        $('tr:last').append("<td>" + table1[i].div + "</td>");
+                    } else if (tableNum == 2) {
+                        $('#table-2:first').append("<tr>");
+                        $('tr:last').append("<td>" + count + "</td>");
+                        $('tr:last').append("<td>" + table2[i].firstName + "</td>");
+                        $('tr:last').append("<td>" + table1[i].totalGames + "</td>");
+                        $('tr:last').append("<td>" + table2[i].totalWin + "</td>");
+                        $('tr:last').append("<td>" + table1[i].ratio + "</td>");
+                        $('tr:last').append("<td>" + table2[i].div + "</td>");
+                    } else if (tableNum == 3) {
+                        $('#table-3:first').append("<tr>");
+                        $('tr:last').append("<td>" + count + "</td>");
+                        $('tr:last').append("<td>" + table3[i].firstName + "</td>");
+                        $('tr:last').append("<td>" + table1[i].totalGames + "</td>");
+                        $('tr:last').append("<td>" + table3[i].totalWin + "</td>");
+                        $('tr:last').append("<td>" + table1[i].ratio + "</td>");
+                        $('tr:last').append("<td>" + table3[i].div + "</td>");
+                    } else {
+                        $('#table-4:first').append("<tr>");
+                        $('tr:last').append("<td>" + count + "</td>");
+                        $('tr:last').append("<td>" + table4[i].firstName + "</td>");
+                        $('tr:last').append("<td>" + table1[i].totalGames + "</td>");
+                        $('tr:last').append("<td>" + table4[i].totalWin + "</td>");
+                        $('tr:last').append("<td>" + table1[i].ratio + "</td>");
+                        $('tr:last').append("<td>" + table4[i].div + "</td>");
+                    }
+                    count++;
+                    i++;
+                    breaker++;
+                }
+            });
+            $(document).ready(function(){
+                $(".button-collapse").sideNav();
+                // Write on keyup event of keyword input element
+                $("#search").keyup(function(){
+                    _this = this;
+                    // Show only matching TR, hide rest of them
+                    $.each($("#row-tabs tbody").find("tr"), function() {
+                        if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) == -1)
+                           $(this).hide();
+                        else
+                             $(this).show();                
+                    });
+                });
+            });
+            function navigate(id) {
+                if (id == leaderboardsId && !($(leaderContainer).is(':visible'))) {
+                    $(leaderContainer).fadeIn(1000);
+                    if ($(hacksContainer).is(':visible')) {
+                        $(hacksContainer).fadeOut(500);
+                    } else {
+                        $(rulesContainer).fadeOut(500);
+                    }
+                }
+                if (id == hackathonsId && !($(hacksContainer).is(':visible'))) {
+                    $(hacksContainer).fadeIn(1000);
+                    if ($(leaderContainer).is(':visible')) {
+                        $(leaderContainer).fadeOut(500);
+                    } else {
+                        $(rulesContainer).fadeOut(500);
+                    }
+                }
+                if (id == rulesId && !($(rulesContainer).is(':visible'))) {
+                    $(rulesContainer).fadeIn(1000);
+                    if ($(leaderContainer).is(':visible')) {
+                        $(leaderContainer).fadeOut(500);
+                    } else {
+                        $(hacksContainer).fadeOut(500);
+                    }
+                }
+            }
+            function onSignIn(googleUser) {
+              var profile = googleUser.getBasicProfile();
+              console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+              console.log('Name: ' + profile.getName());
+              console.log('Image URL: ' + profile.getImageUrl());
+              console.log('Email: ' + profile.getEmail());
+              $('#signin').append(profile.getName());
+            }
+            function signOut() {
+                var auth2 = gapi.auth2.getAuthInstance();
+                auth2.signOut().then(function () {
+                  console.log('User signed out.');
+                });
+            }
+
+        </script>
+        <div id="login-register">
+            <a id="login" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Login</a>
+            <a id="register" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Register</a>
+        </div>
+        <nav>
+            <div class="nav-wrapper nav-colors">
+                <a id="cyber-logo" class="brand-logo"><img src="images/cycfed.jpg"></a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a id="leaderboards" onclick="navigate('#' + this.id)">Leaderboards</a></li>
+                    <li><a id="hackathons" onclick="navigate('#' + this.id)">Hackathons</a></li>
+                    <li><a id="rules" onclick="navigate('#' + this.id)">Rules</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a id="leaderboards" onclick="navigate('#' + this.id)">Leaderboards</a></li>
+                    <li><a id="hackathons" onclick="navigate('#' + this.id)">Hackathons</a></li>
+                    <li><a id="rules" onclick="navigate('#' + this.id)">Rules</a></li>
+                </ul>
+
+            </div>
+        </nav>
+        <nav id="search-bar">
+            <div class="nav-wrapper nav-colors">
+                <div class="input-field">
+                    <input id="search" type="search" placeholder="Type to search.." required>
+                    <label for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+            </div>
+        </nav>  
+        <div id="register-container">
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="first_name" type="text" class="validate">
+                            <label for="first_name">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="last_name" type="text" class="validate">
+                            <label for="last_name">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <img style="-webkit-user-select: none; width: 300px; display: block; margin-left: auto; margin-right: auto;" src="https://www.rallynavigator.com/assets/google_oauth2-login-button-9da4ac95125e023504fe0d9db96c94f0.png">
+        </div>    
+        <footer id="footer" class="page-footer footer-colors">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Footer Content</h5>
+                        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                    </div>
+                    <div id="social-media-container">
+                        <ul>
+                            <li><a class="grey-text text-lighten-3" href="#!"><img src="images/facebook.png"></a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!"><img src="images/g_plus_icon.png"></a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!"><img src="images/instagram.png"></a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!"><img src="images/linkedin.png"></a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!"><img src="images/twitter.png"></a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!"><img src="images/youtube.png"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2015 Copyright Cyberfed
+                    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
