@@ -98,6 +98,9 @@
 	margin-right: 5px;
 	background-color: #ffa500;
 }
+nav ul li.nohover:hover, nav ul li.active {
+	background-color: inherit;
+}
 #cyber-logo {
 	line-height: 90px;
 }
@@ -126,7 +129,7 @@
 }
 .custom-input-field {
   	position: relative;
-  	width: 250px;
+  	width: 200px;
   	height: 40px;
 	overflow: hidden;
 	border-radius: 5px;
@@ -139,4 +142,7 @@
   cursor: pointer;
   font-size: 2rem;
   transition: .3s color;
+}
+#search {
+	font-size: 15px;
 }
