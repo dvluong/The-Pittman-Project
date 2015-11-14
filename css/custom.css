@@ -1,6 +1,7 @@
 #leader-container, #hacks-container, #rules-container {
 	width: 1170px;
 }
+
 #leader-container, #rules-container, #register-container {
 	display: none;
 }
@@ -98,7 +99,7 @@
 	margin-right: 5px;
 	background-color: #ffa500;
 }
-nav ul li.nohover:hover, nav ul li.active {
+nav ul li.nohover:hover{
 	background-color: inherit;
 }
 #cyber-logo {
@@ -145,4 +146,15 @@ nav ul li.nohover:hover, nav ul li.active {
 }
 #search {
 	font-size: 15px;
+}
+#submit {
+	margin-right: auto;
+	margin-right: auto;
+	background-color: #ffa500;
+}
+
+@media screen and (max-width: 480px) {
+	#hacks-container {
+		width: 500px;
+	}
 }

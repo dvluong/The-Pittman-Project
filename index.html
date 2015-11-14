@@ -8,6 +8,7 @@
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
         <link rel="stylesheet" type="text/css" href="css/custom.css">
         <meta name="google-signin-client_id" content="757099700822-29tejoue31hcm39hhbqm4p7qgqbkh06d.apps.googleusercontent.com">
@@ -142,8 +143,14 @@
                     });
                 });
             });
+            $(document).ready(function(){
+                //$('#nav-table').addClass('active');
+                //$('ul.tabs').tabs();
+            });
             function navigate(id) {
                 if (id == leaderboardsId && !($(leaderContainer).is(':visible'))) {
+                    //$('#nav-table').addClass('active');
+                    //$('ul.tabs').tabs('select_tab', 'nav-table');
                     $(leaderContainer).fadeIn(1000);
                     if ($(hacksContainer).is(':visible')) {
                         $(hacksContainer).fadeOut(500);
@@ -197,6 +204,23 @@
                 auth2.signOut().then(function () {
                   console.log('User signed out.');
                 });
+            }
+            function onSuccess(googleUser) {
+              console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+            }
+            function onFailure(error) {
+              console.log(error);
+            }
+            function renderButton() {
+              gapi.signin2.render('my-signin2', {
+                'scope': 'https://www.googleapis.com/auth/plus.login',
+                'width': 200,
+                'height': 50,
+                'longtitle': true,
+                'theme': 'dark',
+                'onsuccess': onSuccess,
+                'onfailure': onFailure
+              });
             }
 
         </script>
@@ -269,7 +293,7 @@
                         <span class="card-title activator text-darken-4">Hack 2<i style="line-height: 2;" class="material-icons right">more_vert</i></span>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title text-darken-4">Hack 2<i class="material-icons right">close</i></span>
+                        <span class="card-title grey-text text-darken-4">Hack 2<i class="material-icons right">close</i></span>
                         <p>Here is some more information about this product that is only revealed once clicked on.</p>
                     </div>
                 </div>
@@ -282,7 +306,7 @@
                         <span class="card-title activator text-darken-4">Hack 3<i style="line-height: 2;" class="material-icons right">more_vert</i></span>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title text-darken-4">Hack 3<i class="material-icons right">close</i></span>
+                        <span class="card-title grey-text text-darken-4">Hack 3<i class="material-icons right">close</i></span>
                         <p>Here is some more information about this product that is only revealed once clicked on.</p>
                     </div>
                 </div>
@@ -321,7 +345,7 @@
                         <span class="card-title activator text-darken-4">Hack 2<i style="line-height: 2;" class="material-icons right">more_vert</i></span>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title text-darken-4">Hack 2<i class="material-icons right">close</i></span>
+                        <span class="card-title grey-text text-darken-4">Hack 2<i class="material-icons right">close</i></span>
                         <p>Here is some more information about this product that is only revealed once clicked on.</p>
                     </div>
                 </div>
@@ -334,7 +358,7 @@
                         <span class="card-title activator text-darken-4">Hack 3<i style="line-height: 2;" class="material-icons right">more_vert</i></span>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title text-darken-4">Hack 3<i class="material-icons right">close</i></span>
+                        <span class="card-title grey-text text-darken-4">Hack 3<i class="material-icons right">close</i></span>
                         <p>Here is some more information about this product that is only revealed once clicked on.</p>
                     </div>
                 </div>
@@ -357,7 +381,7 @@
             <div class="row">
                 <div class="col s12">
                         <ul class="tabs">
-                        <li class="tab col s3"><a class="active" href="#table-1">Table 1</a></li>
+                        <li class="tab col s3"><a href="#table-1" class="active">Table 1</a></li>
                         <li class="tab col s3"><a href="#table-2">Table 2</a></li>
                         <li class="tab col s3"><a href="#table-3">Table 3</a></li>
                         <li class="tab col s3"><a href="#table-4">Table 4</a></li>
@@ -435,33 +459,75 @@
             </div>    
         </div>
         <div id="register-container">
-            <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="first_name" type="text" class="validate">
-                            <label for="first_name">First Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="last_name" type="text" class="validate">
-                            <label for="last_name">Last Name</label>
-                        </div>
+            <section style="margin-top: 10px;">
+                <div class="row">
+                    <div>
+                        <h3 style="color: white">Login</h3>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="password" type="password" class="validate">
-                            <label for="password">Password</label>
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="email" type="email" class="validate">
+                                <label for="email">Email</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="email" type="email" class="validate">
-                            <label for="email">Email</label>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="password" type="password" class="validate">
+                                <label for="password">Password</label>
+                            </div>
                         </div>
+                        <section>
+                        <div class="row">
+                            <button id="submit" class="btn waves-effect waves-light" style="width: 200px; height: 50px" type="submit" name="action">Login
+                                    <i class="material-icons right">send</i>
+                            </button>
+                            <span style="color: white; margin-left: 7px;">-OR-</span>
+                            <div style="float: right">
+                        <div id="my-signin2"></div>
+                            <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+                        </div>
+                            
+                        </div>
+                        </section>
+                    </form>
+                    
+                </div>   
+                <div class="row">
+                    <div>
+                        <h3 style="color: white">Register</h3>
                     </div>
-                </form>
-            </div>
-            <img style="-webkit-user-select: none; width: 300px; display: block; margin-left: auto; margin-right: auto;" src="https://www.rallynavigator.com/assets/google_oauth2-login-button-9da4ac95125e023504fe0d9db96c94f0.png">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="first_name" type="text" class="validate">
+                                <label for="first_name">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="last_name" type="text" class="validate">
+                                <label for="last_name">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="password" type="password" class="validate">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="email" type="email" class="validate">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button id="submit" class="btn waves-effect waves-light" style="width: 200px; height: 50px" type="submit" name="action">Register
+                                    <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
         </div>
         <footer id="footer" class="page-footer footer-colors">
             <div class="container">
