@@ -1,8 +1,8 @@
-#leader-container, #hacks-container, #rules-container {
+#leader-container, #home-container, #rules-container, #teams-container {
 	width: 1170px;
 }
 
-#leader-container, #rules-container, #register-container {
+#leader-container, #rules-container, #register-container, #teams-container {
 	display: none;
 }
 #register-container {
@@ -21,7 +21,7 @@
     margin-top: 6%;
     background: white;
 }
-#rules-container, #hacks-container {
+#rules-container, #home-container, #teams-container {
 	margin-right: auto;
     margin-left: auto;
     padding-left: 15px;
@@ -154,7 +154,7 @@ nav ul li.nohover:hover{
 }
 
 @media screen and (max-width: 480px) {
-	#hacks-container {
+	#home-container {
 		width: 500px;
 	}
 }
