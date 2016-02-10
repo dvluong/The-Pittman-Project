@@ -1,82 +1,92 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>Leaderboards</title>
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/materialize.min.js"></script>
-        <!--Import Google Icon Font-->
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
-        <link rel="stylesheet" type="text/css" href="css/custom.css">
-    </head>
+  <head>
+    <title>Registration Form Using jQuery - Demo Preview</title>
+    <meta name="robots" content="noindex, nofollow">
+    <!-- Include CSS File Here -->
     <style type="text/css">
-        .input-field input[type=search] {
-  display: block;
-  line-height: inherit;
-  padding-left: 4rem;
-  width: calc(100% - 4rem);
-}
-.input-field {
-  position: relative;
-  min-width: 300px;
-    overflow: hidden;
-  margin-top: 1rem;
-}
-.input-field input[type=search] ~ .mdi-navigation-close {
-  position: absolute;
-  top: 0;
-  right: 1rem;
-  color: transparent;
-  cursor: pointer;
-  font-size: 2rem;
-  transition: .3s color;
-}
+      /* Below line is used for online Google font */
+      @import url(http://fonts.googleapis.com/css?family=Droid+Serif);
+      h2{
+      text-align: center;
+      font-size: 24px;
+      }
+      hr{
+      margin-bottom: 30px;
+      }
+      div.container{
+      width: 960px;
+      height: 610px;
+      margin:50px auto;
+      font-family: 'Droid Serif', serif;
+      position:relative;
+      }
+      div.main{
+      width: 320px;
+      float:left;
+      padding: 10px 55px 40px;
+      background-color: rgba(187, 255, 184, 0.65);
+      border: 15px solid white;
+      box-shadow: 0 0 10px;
+      border-radius: 2px;
+      font-size: 13px;
+      }
+      input[type=text],[type=password] {
+      width: 97.7%;
+      height: 34px;
+      padding-left: 5px;
+      margin-bottom: 20px;
+      margin-top: 8px;
+      box-shadow: 0 0 5px #00F5FF;
+      border: 2px solid #00F5FF;
+      color: #4f4f4f;
+      font-size: 16px;
+      }
+      label{
+      color: #464646;
+      text-shadow: 0 1px 0 #fff;
+      font-size: 14px;
+      font-weight: bold;
+      }
+      #register {
+      font-size: 20px;
+      margin-top: 15px;
+      background: linear-gradient(#22abe9 5%, #36caf0 100%);
+      border: 1px solid #0F799E;
+      padding: 7px 35px;
+      color: white;
+      text-shadow: 0px 1px 0px #13506D;
+      font-weight: bold;
+      border-radius: 2px;
+      cursor: pointer;
+      width: 100%;
+      }
+      #register:hover{
+      background: linear-gradient(#36caf0 5%, #22abe9 100%);
+      }
     </style>
-    <body id="body-background">
-        <script type="text/javascript">
-        var count = 1;
-        var names = ['David', 'Jason', 'Dan', 'Thuy', 'Raina', 'Jim', 'Alex', 'Andrew', 'Roberto', 'Jose'];
-        var wins = 0;
-        var rand = 0;
-        var division = ['Professional', 'Graduate', 'Undergraduate', 'High School', 'Middle School'];
-        var i = 0;
-        var breaker = 0;
-        var tableNum = 1;
-        var test = [{firstName:"Fack", lastName:"Doe", age:6}, {firstName:"David", lastName:"Doe", age:2},
-                    {firstName:"Dood", lastName:"Doe", age:5}, {firstName:"Hoe", lastName:"Doe", age:1}, 
-                    {firstName:"This", lastName:"Doe", age:20}, {firstName:"Penis", lastName:"Doe", age:5}, 
-                    {firstName:"Poop", lastName:"Doe", age:3}, {firstName:"Slut", lastName:"Doe", age:6}];
-            $( document ).ready(function() {
-                var $rows = $('#table tr');
-                console.log((Math.floor(Math.random() * 0.9) + 0.1));
-                $('#search').keyup(function() {
-                    
-                    var val = '^(?=.*\\b' + $.trim($(this).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$',
-                        reg = RegExp(val, 'i'),
-                        text;
-                    
-                    $rows.show().filter(function() {
-                        text = $(this).text().replace(/\s+/g, ' ');
-                        return !reg.test(text);
-                    }).hide();
-                });
-            });
-        </script>
-        <!-- <input type="text" id="search" placeholder="Type to search"> -->
-        <div class="row">
-    <div class="col s12">
-      <ul class="tabs">
-        <li class="tab col s3"><a href="#test1">Test 1</a></li>
-        <li class="tab col s3"><a href="#test2">Test 2</a></li>
-        <li class="tab col s3"><a href="#test3">Disabled Tab</a></li>
-        <li class="tab col s3"><a href="#test4">Test 4</a></li>
-      </ul>
+    <!-- Include JS File Here -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/registration.js"></script>
+  </head>
+    <body>
+    <div class="container">
+      <div class="main">
+        <form class="form" method="post" action="#">
+          <h2>Create Registration Form Using jQuery</h2>
+          <label>First Name :</label>
+          <input type="text" name="dname" id="firstname">
+          <label>Last Name :</label>
+          <input type="text" name="dname" id="lastname">
+          <label>Email :</label>
+          <input type="text" name="demail" id="email">
+          <label>Password :</label>
+          <input type="password" name="password" id="password">
+          <label>Confirm Password :</label>
+          <input type="password" name="cpassword" id="cpassword">
+          <input type="button" name="register" id="register" value="Register">
+        </form>
+      </div>
     </div>
-    <div id="test1" class="col s12">Test 1</div>
-    <div id="test2" class="col s12">Test 2</div>
-    <div id="test3" class="col s12">Test 3</div>
-    <div id="test4" class="col s12">Test 4</div>
-  </div>
-    </body>
+  </body>
 </html>
