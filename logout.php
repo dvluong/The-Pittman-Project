@@ -1,6 +1,9 @@
-<?php
-	session_start();
+<?php 
+	
+	/*
+		Logs the user out and destroys the current session.
+	*/
+	include "functions.php";
 	session_destroy();
-	$_SESSION = array();
+	header('location: index.php');
 ?>
-<meta content="0; login.php" http-equiv="refresh">

@@ -11,7 +11,7 @@
 			<li><a href="request.php">Requests</a></li>
 			<li><a href="member.php">Members</a></li>
 			<li><a href="groups.php">Groups</a></li>
-			<li><a href="logout2.php">Log Out</a></li>
+			<li><a href="logout.php">Log Out</a></li>
 			<?php 
 				$my_id = $_SESSION['user_id'];
 				$email = mysql_fetch_array(mysql_query("SELECT email FROM users WHERE id='$my_id'"))['email'];
@@ -20,8 +20,8 @@
 		<?php
 		} else {
 		?>
-			<li><a href="login2.php">Login</a></li>
-			<li><a href="register2.php">Register</a></li>
+			<li><a href="login.php">Login</a></li>
+			<li><a href="register.php">Register</a></li>
 		<?php
 		}
 		?>

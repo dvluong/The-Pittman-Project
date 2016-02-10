@@ -1,5 +1,4 @@
 <?php 
-
 	include 'base.php';
 	include 'functions.php';
 	/* 
