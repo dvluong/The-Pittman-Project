@@ -1,0 +1,485 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
+
+main {
+	padding: 3.2em 0;
+    padding-top: 3.2em;
+    padding-right: 0px;
+    padding-bottom: 3.2em;
+    padding-left: 0px;
+	background: -webkit-linear-gradient(left, #000 , #323232, #000); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(right, #000 , #323232, #000); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(right, #000 , #323232, #000); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to right, #000 , #323232, #000); /* Standard syntax */
+}
+
+#body {
+		
+}
+
+section {
+	padding: 2em 0 5em 0;
+}
+
+section.hire {
+	padding: 3.4em 0 2em 0;
+}
+
+section.contact {
+	padding: 4.8em 0 0 0;
+}
+
+#logo {
+	line-height: 50px;
+	z-index: 9999;
+	position: absolute;
+	width: auto;
+	height: 100%;
+	top: 0%;
+	left:0;
+}
+
+/*
+ * Masthead for nav
+ */
+
+.blog-masthead {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  height: 45px;
+  width: 100%;
+  background-color: #000;
+  -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+          box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+}
+
+/* Nav links */
+.blog-nav-item {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  font-weight: 500;
+  color: #cdddeb;
+}
+.blog-nav-item:hover,
+.blog-nav-item:focus {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Active state gets a caret at the bottom */
+.blog-nav .active {
+  color: #fff;
+}
+
+.blog-nav .active:after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -5px;
+  vertical-align: middle;
+  content: " ";
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid;
+  border-left: 5px solid transparent;
+}
+
+/* Customize own headers not used in bootstrap */
+h7 {
+	padding: 1em 0 .8em 0;
+	font-size: 43px;
+	font-family: 'Lato';
+	font-weight: 900;
+	text-transform: uppercase;
+}
+
+h7:after { content: ' '; display: block; width: 60px; padding-top: 20px; border-bottom: 3px solid rgba(0,0,0, 0.3) }
+
+h8 {
+	padding: 1em 0 .8em 0;
+	font-size: 43px;
+	font-family: 'Lato';
+	font-weight: 900;
+	text-transform: uppercase;
+}
+
+h9 {
+	font-size: 33px;
+	font-family: 'Lato';
+	letter-spacing: 4px;
+}
+
+h10 {
+	padding: 1em 0 .8em 0;
+	font-size: 30px;
+	font-family: 'Lato';
+	font-weight: normal;
+}
+
+h11 {
+	color: white;
+	padding: 1em 0 .8em 0;
+	font-size: 14px;
+	font-family: Tahoma;
+}
+
+h12 {
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	color: inherit;
+	font-size: 33px;
+	font-weight: 700;
+	line-height: 1.1;
+	font-family: Inherit;
+}
+
+h12:after { content: ' '; display: block; width: 60px; padding-top: 20px; border-bottom: 3px solid rgba(0,0,0, 0.3) }
+
+/* Contact side bar for home page */
+#leftside {
+	z-index: 9999;
+	position: fixed;
+	width: auto;
+	height: 100%;
+	top: 40%;
+	left:0;
+}
+
+/* Animation for contact side bar on home page */
+.hvr-float{display:inline-block;vertical-align:middle;-webkit-transform:translateZ(0);transform:translateZ(0);box-shadow:0 0 1px rgba(0,0,0,0);-webkit-backface-visibility:hidden;backface-visibility:hidden;-moz-osx-font-smoothing:grayscale;-webkit-transition-duration:.3s;transition-duration:.3s;-webkit-transition-property:transform;transition-property:transform;-webkit-transition-timing-function:ease-out;transition-timing-function:ease-out}
+
+.hvr-float:active,.hvr-float:focus,.hvr-float:hover{-webkit-transform:translateY(-8px);transform:translateX(15px)}
+
+/* Animation for projects on home page */
+.grid {
+	max-width: 1300px;
+	margin: 0 auto;
+	list-style: none;
+	text-align: center;
+}
+
+.grid li {
+	display: inline-block;
+	width: 440px;
+	margin: 0;
+	padding: 20px;
+	text-align: left;
+	position: relative;
+}
+
+.grid figure {
+	margin: 0;
+	position: relative;
+}
+
+.grid figure img {
+	max-width: 100%;
+	display: block;
+	position: relative;
+}
+
+.grid figcaption {
+	max-width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 20px;
+	background: #024961;
+	color: #ed4e6e;
+	border-radius: 15px 15px 5px 5px;
+}
+
+.grid figcaption h3 {
+	margin: 0;
+	padding: 0;
+	color: #fff;
+}
+
+.grid figcaption span:before {
+	content: 'by ';
+}
+/*
+.grid figcaption a {
+	text-align: center;
+	padding: 5px 10px;
+	border-radius: 2px;
+	display: inline-block;
+	background: #ed4e6e;
+	color: #fff;
+}*/
+
+@media screen and (max-width: 31.5em) {
+	.grid {
+		padding: 10px 10px 100px 10px;
+	}
+	.grid li {
+		width: 100%;
+		min-width: 300px;
+	}
+}
+
+.cs-style-2 figure img {
+	z-index: 10;
+	transition: transform 0.4s;
+}
+
+.no-touch .cs-style-2 figure:hover img,
+.cs-style-2 figure.cs-hover img {
+	transform: translateX(-200px);
+}
+
+.cs-style-2 figcaption {
+	height: 260px;
+	width: 200px;
+	top: auto;
+	bottom: 0;
+}
+
+.cs-style-2 figcaption a {
+	position: ;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img.resize {
+	max-width:100%;
+}
+
+img.resize-project {
+	height: 200px;
+	width: 200px;
+	max-width:100%;
+}
+
+img.resize-gallery {
+	height: 90px;
+	width: 90px;
+	max-width:100%;
+}
+
+img.resize-hobby {
+	height: 200px;
+	width: 300px;
+	max-width:100%;
+}
+
+img.effect  {
+  -webkit-filter: brightness(95%);
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+		  border: 3px solid white; 
+}
+
+img.effect:hover  {
+  -webkit-filter: brightness(130%);
+   border: 3px solid black; 
+}
+
+a.resize-gallery-expand {
+	height: 500px;
+	width: 500px;
+	max-height: 25%;
+	max-width: 25%;
+}
+
+#hobby {
+	background:#6b9f7d;
+}
+
+#gallery {
+	background:#eb4450;
+}
+
+#contact {
+	background: -webkit-linear-gradient(left, red , blue); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(right, red, blue); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(right, red, blue); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to right, #2C3E50 , #2980b9, #2C3E50 ); /* Standard syntax */
+}
+
+#contact a.btn.github {
+	display: inline-block;
+	border-radius: 4px;
+	background-color: #cccccc;
+	padding: 0.5em 1em 0.5em 1em;
+	color: #000;
+}
+
+#contact a.btn.github:hover { 
+	background-color: #000; color: #cccccc; 
+}
+
+/* The back to top icon */
+.scrollup {
+  width: 45px;
+  height: 45px;
+  opacity: 0.6;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  display: none;
+  text-indent: -9999px;
+  background: url('arrow_up.png') no-repeat;
+}
+
+/* Customize list for "hire me" section */
+#hire ul { padding-left: 25%; list-style: none; }
+#hire ul li { max-width: 75%; margin-bottom: 12px; line-height: 1.5em; color: #000; font-size: 20px; }
+#hire ul li:before { content: '\f00c'; color: #00ff00; font-family: FontAwesome; display: inline-block; width: 40px; margin-left: -40px; }
+
+/* Side bars for project pages */
+.leftsidebar-nav {
+	position: fixed;
+	background-color:#7DB4B5;
+	height:100%; 
+}
+.rightsidebar-nav {
+	position: fixed;
+	background-color:#7DB4B5;
+	height:100%;
+	width:14%;
+	right: 0px; 
+}
+
+#team-sidebar {
+	padding: 3.2em 0;
+    padding-top: 1em;
+    padding-right: 0.1em;
+    padding-bottom: 1em;
+    padding-left: 0.1em;
+	background: white;
+	height:90%;
+	width:100%;
+	border-radius: 15px 15px 15px 15px;
+}
+
+.login {
+  padding: 0.5em;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  border-radius: 3px;
+  @include box-shadow(0 0 200px rgba(white, .5), 0 1px 2px rgba(black, .3));
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -8px; right: -8px; bottom: -8px; left: -8px;
+    z-index: -1;
+    background: rgba(black, .08);
+    border-radius: 4px;
+  }
+
+  p { margin: 20px 0 0; }
+  p:first-child { margin-top: 0; }
+
+  input[type=text], input[type=password] { width: 278px; }
+
+  p.remember_me {
+    float: left;
+    line-height: 31px;
+
+    label {
+      font-size: 12px;
+      color: #777;
+      cursor: pointer;
+    }
+
+    input {
+      position: relative;
+      bottom: 1px;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+  }
+
+  p.submit { text-align: right; }
+}
+
+.login-help {
+  margin: 20px 0;
+  font-size: 11px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px #2a85a1;
+
+  a {
+    color: #cce7fa;
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
+  }
+}
+
+:-moz-placeholder {
+  color: #c9c9c9 !important;
+  font-size: 13px;
+}
+
+::-webkit-input-placeholder {
+  color: #ccc;
+  font-size: 13px;
+}
+
+input {
+  font-family: 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  font-size: 14px;
+}
+
+input[type=text], input[type=password] {
+  margin: 5px;
+  padding: 0 10px;
+  width: 200px;
+  height: 34px;
+  color: #404040;
+  background: white;
+  border: 1px solid;
+  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+  border-radius: 2px;
+  outline: 5px solid #eff4f7;
+  -moz-outline-radius: 3px; // Can we get this on WebKit please?
+  @include box-shadow(inset 0 1px 3px rgba(black, .12));
+
+  &:focus {
+    border-color: #7dc9e2;
+    outline-color: #dceefc;
+    outline-offset: 0; // WebKit sets this to -1 by default
+  }
+}
+
+input[type=submit] {
+  padding: 0 18px;
+  height: 29px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #527881;
+  text-shadow: 0 1px #e3f1f1;
+  background: #cde5ef;
+  border: 1px solid;
+  border-color: #b4ccce #b3c0c8 #9eb9c2;
+  border-radius: 16px;
+  outline: 0;
+  @include box-sizing(content-box); // Firefox sets this to border-box by default
+  @include linear-gradient(top, #edf5f8, #cde5ef);
+  @include box-shadow(inset 0 1px white, 0 1px 2px rgba(black, .15));
+
+  &:active {
+    background: #cde5ef;
+    border-color: #9eb9c2 #b3c0c8 #b4ccce;
+    @include box-shadow(inset 0 0 3px rgba(black, .2));
+  }
+}
+
+.lt-ie9 {
+  input[type=text], input[type=password] { line-height: 34px; }
+}

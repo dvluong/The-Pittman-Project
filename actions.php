@@ -1,6 +1,6 @@
 <?php 
-	include 'base.php';
-	include 'functions.php';
+	include 'main/base.php';
+	include 'main/functions.php';
 	/* 
 		As the name suggests, 'action' will get the user's action.
 		For example, if the user accepts a group request, that would

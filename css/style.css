@@ -1,67 +1,232 @@
+html {
+	height: 100%;
+}
+
 body {
-	font-family: verdana;
-	font-size: 12px;
-	background: #333;
-	color: #fff;
-	margin:10px;
-	padding: 0px;
-}
-
-input {
-	background: #333;
-	color: #fff;
-	padding: 10px;
-	border-radius: 5px;
-	border: 0px;
-	margin: 5px 0px;
-}
-
-#title-bar {
-	background: #ccc;
-	color: #333;
-	padding: 10px;
-	border-radius: 5px;
-}
-
-#title-bar ul {
-	list-style: none;
-	padding: 0px;
-	margin: 0px;
-}
-
-#title-bar ul li {
-	float: left;
-	padding: 10px 0px;
-}
-
-#title-bar ul li a {
-	background: #ccc;
-	color: #333;
-	padding: 10px;
-	text-decoration: none;
-	border-radius: 5px;
-}
-
-#title-bar ul li a:hover {
-	background: #333;
-	color: #fff;
-}
-
-#message {
-	background: #333;
-	color: #fff;
-	padding: 10px;
-	border-radius: 5px;
-	margin: 10px 0px;
-	text-decoration: none;
-}
-
-.clear {
+	min-height: 400px;
+	margin-top: 50px;
+	margin-bottom: 125px;
 	clear: both;
 }
 
-.box {
-	background: #333;
+.body-background {
+	background: #E2DA99; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(left top, #E2DA99, #342800); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, #E2DA99, #342800); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, #E2DA99, #342800); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, #E2DA99, #342800); /* Standard syntax */
+	/* background-image: url("http://cyberfed.org/templates/logistix/images/backgrounds/bridge-bobybkg.jpg"); */
+
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+ }
+
+.navbar-brand {
+	float: left;
+    height: 50px;
+    font-size: 18px;
+    line-height: 20px;
+    padding: 0;
+}
+
+#nav-color {
+	position: fixed;
+	top: 0;
+	z-index: 9999;
+	width: 100%;
+	background-color: #000;
+	-webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+			box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+	border-radius: 0px;
+}
+
+.dropdown-menu {
+	background-color: #000;
+}
+
+.dropdown-menu>li>a {
+	color: #fff;
+}
+
+/* Nav links */
+.nav-item {
+	font-weight: 500;
+	text-decoration: none;
+	color: #fff;
+}
+.nav-item:hover,
+.nav-item:focus {
+	color: #fff;
+	text-decoration: none;
+	background-color: #ffa500;
+  	transition: background-color .3s;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  color: #fff;
+	text-decoration: none;
+	background-color: #ffa500;
+}
+.nav>li>a:hover, .nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
+	color: #fff;
+	text-decoration: none;
+	background-color: #ffa500;
+  	transition: background-color .3s;
+}
+
+/* Active state gets a caret at the bottom */
+.nav-item.active {
+  background-color: #ffa500;
+}
+
+.right {
+    float: right !important;
+}
+
+li {
+	list-style-type: none;
+}
+
+#footer {
+	margin-top: 20px;
+	padding-top: 20px;
+	background-color: #000;
+	color: #fff;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+}
+
+#social-media-container {
+	width: 300px;
+	float: right;
+    min-height: 1px;
+    margin-left: 20px;
+}
+#social-media-container ul {
+	padding: 0; 
+    margin: 0;
+    list-style-type: none;
+}
+#social-media-container li {
+	margin: 0 5px;
+}
+#social-media-container ul li {
+	float: right;
+}
+
+#search {
+	position: absolute;
+	top: 5px;
+	border: none;
+	border-radius: 5px; 
+    padding: 5px;
+	background-color: #616161;
+	font-size: 15px;
+	color: white;
+}
+
+nav .input-field label.active i {
+	color: #fff;
+}
+
+.custom-input-field {
+  	position: relative;
+  	width: 200px;
+  	height: 40px;
+	overflow: hidden;
+	border-radius: 5px;
+}
+
+/* Customize own headers not used in bootstrap */
+h7 {
+	padding: 1em 0 .8em 0;
+	font-size: 43px;
+	font-family: 'Lato';
+	font-weight: 900;
+	text-transform: uppercase;
+}
+
+h7:after { content: ' '; display: block; width: 60px; padding-top: 20px; border-bottom: 3px solid rgba(0,0,0, 0.3) }
+
+h8 {
+	padding: 1em 0 .8em 0;
+	font-size: 43px;
+	font-family: 'Lato';
+	font-weight: 900;
+	text-transform: uppercase;
+}
+
+h9 {
+	font-size: 33px;
+	font-family: 'Lato';
+	letter-spacing: 4px;
+}
+
+h10 {
+	padding: 1em 0 .8em 0;
+	font-size: 30px;
+	font-family: 'Lato';
+	font-weight: normal;
+}
+
+h11 {
+	color: white;
+	padding: 1em 0 .8em 0;
+	font-size: 14px;
+	font-family: Tahoma;
+}
+
+h12 {
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	color: inherit;
+	font-size: 33px;
+	font-weight: 700;
+	line-height: 1.1;
+	font-family: Inherit;
+}
+
+h12:after { content: ' '; display: block; width: 60px; padding-top: 20px; border-bottom: 3px solid rgba(0,0,0, 0.3) }
+
+#team-sidebar {
+	padding: 3.2em 0;
+    padding-top: 1em;
+    padding-right: 0.1em;
+    padding-bottom: 1em;
+    padding-left: 0.1em;
+	background: white;
+	height:87%;
+	width:100%;
+	border-radius: 15px 15px 15px 15px;
+}
+
+#register {
+	margin-top: 6px;
+	margin-left: 10px;
+	margin-right: 5px;
+	/* Gradient from top to bottom for a more 3d effect*/
+	background: #ffa500; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#fff, #ffa500); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#fff, #ffa500); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#fff, #ffa500); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#ffc966, #ffa500, #996300); /* Standard syntax */
+}
+
+.login-register {
+	border: none;
+	width: 150px;
+	font-size: 12px;
+	padding: 10px 12px 10px 12px;
+	color: #fff;
+}
+
+.boxes {
+	background: #000;
 	color: #fff;
 	padding: 10px;
 	border-radius: 5px;
@@ -69,12 +234,33 @@ input {
 	text-decoration: none;
 }
 
-.container {
-	background: #ccc;
-	color: #333;
-	padding: 10px;
-	border-radius: 5px;
-	margin: 10px 0px;
+#login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+}
+#login-dp .help-block{
+    font-size:12px    
+}
+#login-dp .bottom{
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+#login-dp .social-buttons{
+    margin:12px 0    
+}
+#login-dp .social-buttons a{
+    width: 49%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+
+#register-div {
 	width: 50%;
-	min-height: 500px;
+	text-align: center;
+	margin: 100px auto;
 }
